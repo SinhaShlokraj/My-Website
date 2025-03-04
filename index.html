@@ -3,73 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Updated Web Page</title>
+    <title>Interactive Web Page</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f8f9fa; }
-        .header { background: #007bff; color: white; padding: 15px; text-align: center; font-size: 24px; }
-        .navbar { display: flex; justify-content: center; background: #343a40; padding: 10px; }
-        .navbar a { color: white; text-decoration: none; padding: 14px 20px; margin: 0 10px; }
-        .navbar a:hover { background: #495057; }
-        .marquee-container { background: #ffc107; padding: 10px; text-align: center; font-size: 16px; }
-        .content { padding: 20px; text-align: center; }
-        .footer { background: #343a40; color: white; text-align: center; padding: 15px; position: relative; bottom: 0; width: 100%; margin-top: 20px; }
-        .footer a { color: #17a2b8; text-decoration: none; margin: 0 15px; }
-        .footer a:hover { text-decoration: underline; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #f0f2f5, #dfe4ea);
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(90deg, #007bff, #6610f2);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 26px;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            position: relative;
+        }
+        .header:hover {
+            transform: scale(1.05);
+        }
+        .marquee-container {
+            background: #ffc107;
+            padding: 15px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .footer {
+            background: #343a40;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 16px;
+            margin-top: 50px;
+        }
     </style>
+    
+    <script>
+        function updateClock() {
+            const now = new Date();
+            document.getElementById("clock").innerHTML = now.toLocaleString();
+        }
+        setInterval(updateClock, 1000);
+    </script>
 </head>
 <body>
-    <div class="header">Welcome to Our Website</div>
-    
-    <div class="navbar">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#FFFFFF" class="bi bi-segmented-nav" viewBox="0 0 16 16">
-            <path d="M0 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm6 3h4V5H6zm9-1V6a1 1 0 0 0-1-1h-3v4h3a1 1 0 0 0 1-1"/>
-          </svg>
-        <a href="index.html">Home</a>
-        <a href="p3.html">About Us</a>
-        <a href="https://www.linkedin.com/in/shlokraj-sinha-125960289/">Contact Us</a>
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#FFFFFF" class="bi bi-segmented-nav" viewBox="0 0 16 16">
-            <path d="M0 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm6 3h4V5H6zm9-1V6a1 1 0 0 0-1-1h-3v4h3a1 1 0 0 0 1-1"/>
-          </svg>
+    <div class="header">
+        Welcome to My  Website
+        <div id="clock" style="position: absolute; top: 10px; right: 20px; font-size: 14px; color: white;"></div>
     </div>
     
-    <div class="marquee-container">
-        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
-            <path d="M8 3.5a.5.5 0 0 1 .5.5v4.25l3.25 1.75a.5.5 0 0 1-.5.875L8 9V4a.5.5 0 0 1 .5-.5"/>
-            <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m0 1a7 7 0 1 1 0 14A7 7 0 0 1 8 1"/>
-        </svg>
-    
-        <div class="datetime">
-            <p id="currentDateTime"></p>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="p3.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://www.linkedin.com/in/shlokraj-sinha-125960289/"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+            </div>
         </div>
+    </nav>
     
-        <script>
-            function updateDateTime() {
-                const now = new Date();
-                const formattedDateTime = now.toLocaleString();
-                document.getElementById('currentDateTime').textContent = formattedDateTime;
-            }
-            
-            updateDateTime();
-            setInterval(updateDateTime, 1000);
-        </script>
+    <div class="marquee-container">
         <marquee>Stay connected with us for the latest updates and information!</marquee>
     </div>
     
-    <div class="content">
-        <h2></h2>
-        <p> 
-            Welcome to our website! 
-            We are here to provide you with the latest updates, 
-            schedules, and information to keep you informed and connected.
-            Explore different sections of our platform to find what interests you.
-            Explore various sections of our website to find what interests you.
+    <div class="container mt-4 text-align">
+
+        <h1 >About Me:</h1>
+        <p>
+            Welcome to My website! Hi, I'm Shlokraj Sinha, a student at Karnavati University with a deep passion for web technologies. 
+            I love exploring the ever-evolving world of web development, from front-end design to back-end architecture. 
+            Constantly learning and experimenting, I strive to create innovative and user-friendly digital experiences. 
+
+            <p>Excited to connect, collaborate, and build the future of the web! </p>
+        </p>
+        <p>
+            This website was created as part of an assignment given by our professor. 
+            The goal of this project is to apply what we've learned and demonstrate our skills in web development. 
+            Through this website, we aim to showcase our ability to design, structure, and present content effectively.
+           
+            <p> This is just a demo web page.</p>
         </p>
     </div>
     
     <div class="footer">
-        <a href="p5.html">TimeTable</a> |
-        <a href="p6.html">Result</a> |
-        <a href="sitemap.html">Sitemap</a>
+        <a href="p5.html" class="text-info">TimeTable</a> |
+        <a href="p6.html" class="text-info">Results</a> |
+        <a href="sitemap.html" class="text-info">Sitemap</a>
     </div>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
